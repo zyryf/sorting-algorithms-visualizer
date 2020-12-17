@@ -1,8 +1,11 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 
-import "../styles/icon.css";
-import start_image from "../assets/start_image.svg";
+import '../styles/icon.css';
+import starting_image from '../assets/starting_img.svg';
+import { COLORS } from '../ThemeConstants';
 
 const StartImage = styled.img`
   height: 60%;
@@ -41,10 +44,10 @@ const StartComponentWrapper = styled.div`
 const StartComponent = () => {
   return (
     <StartComponentWrapper>
-      <StartImage src={start_image} />
+      <StartImage src={starting_image} />
       <Information>To begin, please generate the random data</Information>
       <Arrow>
-        <i class="fas fa-angle-down"></i>
+        <FontAwesomeIcon icon={faChevronDown} color={COLORS.blue} />
       </Arrow>
     </StartComponentWrapper>
   );

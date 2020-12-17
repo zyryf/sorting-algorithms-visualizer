@@ -1,8 +1,10 @@
-import React from "react";
-import styled from "styled-components";
+import React, { useContext } from 'react';
+import styled from 'styled-components';
 
-import Bar from "./Bar";
-import StartComponent from "./StartComponent";
+import { AppContext } from '../App';
+import Bar from './Bar';
+import StartComponent from './StartComponent';
+import SortingPanel from './SortingPanel';
 
 const GridWrapper = styled.div`
   padding: 2rem;
@@ -10,6 +12,7 @@ const GridWrapper = styled.div`
   border-radius: 20px;
   box-shadow: -24px 32px 85px -13px rgba(0, 0, 0, 0.24);
   position: relative;
+  display: flex;
 `;
 const Bars = styled.ul`
   list-style: none;
@@ -19,17 +22,20 @@ const Bars = styled.ul`
   width: 75%;
 `;
 
-const Card = ({ data }) => {
+const Card = () => {
+  const { data } = useContext(AppContext);
   return (
     <GridWrapper>
-      {data.reduce((a, b) => a + b) === 0 ? <StartComponent /> : null}
       <Bars>
         {data.map((element, index) => (
-          <Bar height={`${element}%`} key={index}></Bar>
+          <Bar
+            height={`${element.value}%`}
+            color={`${element.color}`}
+            key={index}
+          ></Bar>
         ))}
       </Bars>
-      {/* <Bar height={`100%`}></Bar>
-      <Bar height={`50%`}></Bar> */}
+      {data[0].value === 0 ? <StartComponent /> : <SortingPanel />}
     </GridWrapper>
   );
 };

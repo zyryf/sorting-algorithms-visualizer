@@ -1,8 +1,8 @@
-import { useState, useEffect } from "react";
-import styled, { ThemeProvider } from "styled-components";
+import React, { useState, useEffect } from 'react';
+import styled, { ThemeProvider } from 'styled-components';
 
-import Card from "./components/Card";
-import { COLORS, FONT_SIZES } from "./ThemeConstants";
+import Card from './components/Card';
+import { COLORS, FONT_SIZES } from './ThemeConstants';
 
 const Title = styled.h1`
   font-size: ${(props) => props.theme.FONT_SIZES.lg};
@@ -30,8 +30,10 @@ const GenerateData = styled.button`
   }
 `;
 
+export const AppContext = React.createContext();
+
 function App() {
-  const [data, setData] = useState([0]);
+  const [data, setData] = useState([{}]);
 
   useEffect(() => {
     setData(initializeData(50));
@@ -40,38 +42,37 @@ function App() {
   const initializeData = (amount) => {
     const array = [];
     for (let i = 0; i < amount; i++) {
-      array.push(0);
+      array.push({ value: 0, color: COLORS.light_blue });
     }
     return array;
   };
 
   const generateRandomData = (amount) => {
-    const randomNumbers = [];
-
     for (let i = 0; i < amount; i++) {
-      const randomNumber = Math.floor(Math.random() * 100);
-      randomNumbers.push(randomNumber);
+      const randomNumber = Math.floor(Math.random() * 100) + 1;
+      data[i].value = randomNumber;
     }
-
-    setData(randomNumbers);
+    setData([...data]);
   };
 
   return (
-    <ThemeProvider theme={{ COLORS, FONT_SIZES }}>
-      <div className="App">
-        <Title>
-          Sorting algorithms <Colored>visualizer</Colored>
-        </Title>
-        <Card data={data} />
-        <GenerateData
-          onClick={() => {
-            generateRandomData(50);
-          }}
-        >
-          Generate Data
-        </GenerateData>
-      </div>
-    </ThemeProvider>
+    <AppContext.Provider value={{ data, setData }}>
+      <ThemeProvider theme={{ COLORS, FONT_SIZES }}>
+        <div className="App">
+          <Title>
+            Sorting algorithms <Colored>visualizer</Colored>
+          </Title>
+          <Card />
+          <GenerateData
+            onClick={() => {
+              generateRandomData(50);
+            }}
+          >
+            Generate Data
+          </GenerateData>
+        </div>
+      </ThemeProvider>
+    </AppContext.Provider>
   );
 }
 
