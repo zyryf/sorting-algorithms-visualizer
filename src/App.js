@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 
 import Card from './components/Card';
@@ -28,35 +28,28 @@ const GenerateData = styled.button`
   &:hover {
     background-color: ${(props) => props.theme.COLORS.dark_blue};
   }
+  &:disabled {
+    cursor: auto;
+    opacity: 0.3;
+  }
 `;
 
 export const AppContext = React.createContext();
 
 function App() {
-  const [data, setData] = useState([{}]);
-
-  useEffect(() => {
-    setData(initializeData(50));
-  }, []);
-
-  const initializeData = (amount) => {
-    const array = [];
-    for (let i = 0; i < amount; i++) {
-      array.push({ value: 0, color: COLORS.light_blue });
-    }
-    return array;
-  };
-
+  const [data, setData] = useState(null);
+  const [isSorting, setSorting] = useState(false);
   const generateRandomData = (amount) => {
+    const data = [];
     for (let i = 0; i < amount; i++) {
       const randomNumber = Math.floor(Math.random() * 100) + 1;
-      data[i].value = randomNumber;
+      data.push({ value: randomNumber, color: COLORS.light_blue });
     }
     setData([...data]);
   };
 
   return (
-    <AppContext.Provider value={{ data, setData }}>
+    <AppContext.Provider value={{ isSorting, setSorting, data, setData }}>
       <ThemeProvider theme={{ COLORS, FONT_SIZES }}>
         <div className="App">
           <Title>
@@ -64,6 +57,7 @@ function App() {
           </Title>
           <Card />
           <GenerateData
+            disabled={isSorting}
             onClick={() => {
               generateRandomData(50);
             }}

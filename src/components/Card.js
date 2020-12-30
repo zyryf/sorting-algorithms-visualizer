@@ -5,8 +5,8 @@ import { AppContext } from '../App';
 import Bar from './Bar';
 import StartComponent from './StartComponent';
 import SortingPanel from './SortingPanel';
-
 const GridWrapper = styled.div`
+  min-width: 60vw;
   padding: 2rem;
   height: 50vh;
   border-radius: 20px;
@@ -26,16 +26,22 @@ const Card = () => {
   const { data } = useContext(AppContext);
   return (
     <GridWrapper>
-      <Bars>
-        {data.map((element, index) => (
-          <Bar
-            height={`${element.value}%`}
-            color={`${element.color}`}
-            key={index}
-          ></Bar>
-        ))}
-      </Bars>
-      {data[0].value === 0 ? <StartComponent /> : <SortingPanel />}
+      {data !== null ? (
+        <>
+          <Bars>
+            {data.map((element, index) => (
+              <Bar
+                height={`${element.value}%`}
+                color={`${element.color}`}
+                key={index}
+              ></Bar>
+            ))}
+          </Bars>
+          <SortingPanel />
+        </>
+      ) : (
+        <StartComponent />
+      )}
     </GridWrapper>
   );
 };

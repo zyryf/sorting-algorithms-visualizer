@@ -16,14 +16,7 @@ const SortingPanelWrapper = styled.div`
 const SortingPanel = () => {
   return (
     <SortingPanelWrapper>
-      {/* <SortButton>
-        <span>Merge Sort</span>
-      </SortButton> */}
-
       <InsertionSort />
-      {/* <SortButton>
-        <span>Selection Sort</span>
-      </SortButton> */}
     </SortingPanelWrapper>
   );
 };
