@@ -1,6 +1,6 @@
-var mergeSort = function (array, p, r) {
+const mergeSort = (array, p, r) => {
   if (p !== r) {
-    var q = Math.floor((p + r) / 2);
+    const q = Math.floor((p + r) / 2);
     mergeSort(array, p, q);
     mergeSort(array, q + 1, r);
     merge(array, p, q, r);
@@ -9,13 +9,13 @@ var mergeSort = function (array, p, r) {
 
 // Takes in an array that has two sorted subarrays,
 //  from [p..q] and [q+1..r], and merges the array
-var merge = function (array, p, q, r) {
-  var lowHalf = [];
-  var highHalf = [];
+const merge = (array, p, q, r) => {
+  const lowHalf = [];
+  const highHalf = [];
 
-  var k = p;
-  var i;
-  var j;
+  let k = p;
+  let i;
+  let j;
   for (i = 0; k <= q; i++, k++) {
     lowHalf[i] = array[k];
   }

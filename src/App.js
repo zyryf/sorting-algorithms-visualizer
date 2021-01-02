@@ -37,7 +37,9 @@ const GenerateData = styled.button`
 export const AppContext = React.createContext();
 
 function App() {
-  const [data, setData] = useState(null);
+  const [insertionSortData, setInsertionSortData] = useState(null);
+  const [selectionSortData, setSelectionSortData] = useState(null);
+  const [mergeSortData, setMergeSortData] = useState(null);
   const [isSorting, setSorting] = useState(false);
   const generateRandomData = (amount) => {
     const data = [];
@@ -45,11 +47,24 @@ function App() {
       const randomNumber = Math.floor(Math.random() * 100) + 1;
       data.push({ value: randomNumber, color: COLORS.light_blue });
     }
-    setData([...data]);
+    setInsertionSortData([...data]);
+    setSelectionSortData([...data]);
+    setMergeSortData([...data]);
   };
 
   return (
-    <AppContext.Provider value={{ isSorting, setSorting, data, setData }}>
+    <AppContext.Provider
+      value={{
+        insertionSortData,
+        setInsertionSortData,
+        selectionSortData,
+        setSelectionSortData,
+        mergeSortData,
+        setMergeSortData,
+        isSorting,
+        setSorting,
+      }}
+    >
       <ThemeProvider theme={{ COLORS, FONT_SIZES }}>
         <div className="App">
           <Title>
