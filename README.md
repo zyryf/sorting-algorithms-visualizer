@@ -3,7 +3,7 @@
 
 Application shows in the neat way how the most popular sorting algorithms perform on the same randomly generated data.
 
-The delay was added to illustrate specific time-complexity of each algorithm of the following algortihms:
+The delay was added to illustrate specific time-complexity of each of the stated above alogorithms:
 
 * selection sort
 * insertion sort
