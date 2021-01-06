@@ -39,8 +39,9 @@ export const AppContext = React.createContext();
 function App() {
   const [insertionSortData, setInsertionSortData] = useState(null);
   const [selectionSortData, setSelectionSortData] = useState(null);
-  const [mergeSortData, setMergeSortData] = useState(null);
-  const [isSorting, setSorting] = useState(false);
+  const [bubbleSortData, setBubbleSortData] = useState(null);
+
+  const [isSorting, setIsSorting] = useState(false);
   const generateRandomData = (amount) => {
     const data = [];
     for (let i = 0; i < amount; i++) {
@@ -49,7 +50,7 @@ function App() {
     }
     setInsertionSortData([...data]);
     setSelectionSortData([...data]);
-    setMergeSortData([...data]);
+    setBubbleSortData([...data]);
   };
 
   return (
@@ -59,10 +60,10 @@ function App() {
         setInsertionSortData,
         selectionSortData,
         setSelectionSortData,
-        mergeSortData,
-        setMergeSortData,
+        bubbleSortData,
+        setBubbleSortData,
         isSorting,
-        setSorting,
+        setIsSorting,
       }}
     >
       <ThemeProvider theme={{ COLORS, FONT_SIZES }}>

@@ -56,3 +56,6 @@ const merge = (array, p, q, r) => {
     j++;
   }
 };
+const array = [6, 2, 4, 9, 0];
+mergeSort(array, 0, array.length - 1);
+console.log(array);

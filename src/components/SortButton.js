@@ -2,6 +2,8 @@ import styled from 'styled-components';
 
 export const SortButton = styled.button`
   border: 2px solid green;
+  display: block;
+  margin: 0 auto;
   color: green;
   padding: 1.5rem 2.5rem;
   border-radius: 40px;

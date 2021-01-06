@@ -31,7 +31,7 @@ const Bars = styled.ul`
 `;
 
 const Card = () => {
-  const { insertionSortData, mergeSortData, selectionSortData } = useContext(
+  const { insertionSortData, bubbleSortData, selectionSortData } = useContext(
     AppContext
   );
   return (
@@ -58,9 +58,9 @@ const Card = () => {
               ></Bar>
             ))}
           </Bars>
-          <h2>Merge Sort </h2>
+          <h2>Bubble Sort </h2>
           <Bars>
-            {mergeSortData.map((element, index) => (
+            {bubbleSortData.map((element, index) => (
               <Bar
                 height={`${element.value}%`}
                 color={`${element.color}`}
