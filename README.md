@@ -14,7 +14,7 @@ Green bars indicate the sorted part of the data and the red bar points to the cu
 ![sorting algorithms](./src/assets/preview.png)
 
 ## Live preview
-alg0rithms-visualizer.netlify.app
+(alg0rithms-visualizer.netlify.app)
 ## Available Scripts
 
 In the project directory, you can run:
