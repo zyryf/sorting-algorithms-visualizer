@@ -1,5 +1,15 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+
+const enter = keyframes`
+  from {
+    transform: scale(0);
+  }
+
+  to {
+    transform: scale(1);
+  }
+`;
 
 const BarContent = styled.div`
   width: 10px;
@@ -24,6 +34,8 @@ const BarWrapper = styled.div`
   flex-direction: column;
   justify-content: flex-end;
   height: 100%;
+  transform: scale(1);
+  animation: ${enter} 1s;
 `;
 
 const Bar = ({ height, color }) => {
