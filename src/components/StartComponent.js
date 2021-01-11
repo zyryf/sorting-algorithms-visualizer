@@ -10,10 +10,16 @@ import { COLORS } from '../ThemeConstants';
 const StartImage = styled.img`
   height: 60%;
   display: block;
+  @media (max-width: 776px) {
+    height: 50%;
+  }
 `;
 
 const Information = styled.h2`
   text-align: center;
+  @media (max-width: 776px) {
+    font-size: 1.3rem;
+  }
 `;
 
 const Arrow = styled.div`

@@ -3,9 +3,9 @@ import styled from 'styled-components';
 export const SortButton = styled.button`
   border: 2px solid green;
   display: block;
-  margin: 0 auto;
+  margin: 0.5rem auto;
   color: green;
-  padding: 1.5rem 2.5rem;
+  padding: 1.2rem 2.5rem;
   border-radius: 40px;
   font-size: ${(props) => props.theme.FONT_SIZES.sm};
   cursor: pointer;

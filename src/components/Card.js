@@ -21,6 +21,21 @@ const GridWrapper = styled.div`
     text-align: center;
     font-weight: light;
   }
+  @media (max-width: 1400px) {
+    & {
+      width: 70vw;
+    }
+  }
+  @media (max-width: 1200px) {
+    & {
+      width: 80vw;
+    }
+  }
+  @media (max-width: 992px) {
+    & {
+      width: 90vw;
+    }
+  }
 `;
 const Bars = styled.ul`
   padding: 1rem 0;

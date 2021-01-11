@@ -42,6 +42,7 @@ function App() {
   const [bubbleSortData, setBubbleSortData] = useState(null);
 
   const [isSorting, setIsSorting] = useState(false);
+
   const generateRandomData = (amount) => {
     const data = [];
     for (let i = 0; i < amount; i++) {

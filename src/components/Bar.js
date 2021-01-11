@@ -7,6 +7,17 @@ const BarContent = styled.div`
   background-color: ${(props) => props.color};
   border-radius: 3px;
   margin: 0 0.2rem;
+  @media (max-width: 992px) {
+    width: 8px;
+  }
+  @media (max-width: 772px) {
+    width: 6px;
+    margin: 0 1px;
+  }
+  @media (max-width: 576px) {
+    width: 4px;
+    margin: 0 1px;
+  }
 `;
 const BarWrapper = styled.div`
   display: flex;
